@@ -6,7 +6,7 @@ endif
 DEBUG ?= 1
 CXXFLAGS_BASE = -c -g -pthread -fPIC -std=c++17 -Wall -Wno-unknown-pragmas -DJDE_GBM_EXPORTS# -Wno-unknown-pragmas
 #CXXFLAGS =  -g $(INCLUDE) -pthread -c -std=c++17 -Wall -Wno-switch -fPIC
-BIN_DIR_BASE:=../../../bin/
+BIN_DIR_BASE:=../../bin/
 OUT_DIR_BASE := .obj/
 ifeq ($(DEBUG), 1)
 	OUT_DIR=$(OUT_DIR_BASE)debug
