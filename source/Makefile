@@ -33,7 +33,7 @@ $(OUTPUT): $(OUT_DIR)/stdafx.h.gch $(OBJECTS)
 	$(CXX) -L$(BIN_DIR) $(LDFLAGS) $(OBJECTS) -o$(OUTPUT) $(LIBS)
 
 $(OUT_DIR)/stdafx.h.gch: pc.h Dataset.h
-	$(CXX) $(CXXFLAGS) pc.h -o$(OUT_DIR)/stdafx.h.gch -I/home/duffyj/code/libraries/spdlog/include  -I/home/duffyj/code/libraries/xgboost/include -I/home/duffyj/code/libraries/eigen -I/home/duffyj/code/libraries/json/include -I/home/duffyj/code/libraries/xgboost/rabit/include  -I/home/duffyj/code/libraries/boostorg/boost_1_68_0
+	$(CXX) $(CXXFLAGS) pc.h -o$(OUT_DIR)/stdafx.h.gch -I/home/duffyj/code/libraries/spdlog/include  -I/home/duffyj/code/libraries/xgboost/include -I/home/duffyj/code/libraries/eigen -I/home/duffyj/code/libraries/json/include -I/home/duffyj/code/libraries/xgboost/rabit/include  -I$BOOST_ROOT
 
 $(OUT_DIR)/%.o: ./%.cpp ./%.h pc.h
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -Wno-int-in-bool-context -Wno-ignored-attributes ./$< -o$@ -c -I/home/duffyj/code/libraries/eigen  -I/home/duffyj/code/libraries/json/include
