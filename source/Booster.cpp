@@ -221,13 +221,13 @@ namespace Jde::AI::Dts::Xgb
 
 	vector<double> Booster::GetEvaluation( bool validation, uint iteration )const noexcept(false)
 	{
-		ASSRT_TR( !validation || _pValidation );
+		ASSERT( !validation || _pValidation );
 		auto handle = validation ? ValidationPtr()->Handle() : _handle;
 		const char* pszNames = validation ? "validation" : "train";
 		const char* pszResult;
 		CALL( XGBoosterEvalOneIter(_handle, (int)iteration, &handle, &pszNames, 1, &pszResult), "XGBoosterEvalOneIter" );
 		var columns = StringUtilities::Split( string(pszResult), ':' );
-		ASSRT_TR( columns.size()==2 );
+		ASSERT( columns.size()==2 );
 		vector<double> results; results.reserve( GetEvaluationCounts() );
 		results.push_back( stof(columns.back()) );
 //		ASSRT_EQ( results.size(), (uint)outLength );
